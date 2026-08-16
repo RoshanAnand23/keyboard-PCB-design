@@ -1,0 +1,1 @@
+Starting with figuring out how the overall structure of a keyboard PCB layout is structured
