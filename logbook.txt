@@ -1,5 +1,0 @@
-Starting with figuring out how the overall structure of a keyboard PCB layout is structured
-
-Plugins used with Kicad(to consider):
-HTML BOM: list of materials
-KiKit Panelizer
