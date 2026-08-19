@@ -6,7 +6,7 @@ The purpose of this logbook is to write down my thought process, and reasons for
 
 
 
-
+///////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -70,7 +70,7 @@ Controller sends a pulse into the matrix and listens on the other end of the mat
 
 
 
-
+//////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -243,7 +243,7 @@ Has many more options, in smaller packs, easy to find Cherry MX Equivalent
 
 
 
-
+////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -253,8 +253,8 @@ Now starting it on kicad(i will make the layout later)
 
 Basic steps
 
-* Get the library on kicad and start it(schematic)
-* work on layout
+* Get the library on kicad and start it(schematic)  (DONE)
+* work on layout                                    (DONE)
 * **Make left side(and duplicate project and rearrage for right side**
 * Make 3D Printed case
 * fabricate and order components(mc, switches, caps)
@@ -272,21 +272,21 @@ Basic steps
 
 
 
+##### GETTING LIBRARY ON KICAD-left
 
 
 
+I used DownGit to download the specific folder from (https://github.com/joe-scotto/scottokeebs/tree/main/Extras/ScottoKicad), and then added them to my leftKeyboard and rightKeyboard project folders. These were the libraries where the symbol/footprints were from)
 
 
 
+Then I added the libraries to the project specific library
+
+How to get there:(main menu, preferences, manage symbol/footprint libraries, project specific library)
 
 
-I used DownGit to download the specific folder from (https://github.com/joe-scotto/scottokeebs/tree/main/Extras/ScottoKicad), and then added them to my leftKeyboard and rightKeyboard project folders.
 
-
-
-Then I added the libraries to the project specific library(main menu, preferences, manage symbol/footprint libraries, project specific library)
-
-NOTE: Do not need to create/modify the path. 
+NOTE: Do not need to create/modify the path.
 
 NOTE: Schematic are mainly for the MC, the switches would just use the normal switch schematic, and only the footprint would be what is needed from the library
 
@@ -296,7 +296,123 @@ NOTE: Schematic are mainly for the MC, the switches would just use the normal sw
 
 
 
+
+
+##### SCHEMATIC-left
+
+
+
 I started placing the switch, diode and Controller schematics(for left Keyboard)
+
+
+
+The pinout for the controller(https://help.keycapsss.com/build-guides/puchi-ble/)
+
+
+
+I was slightly confused by the pinout:
+
+I believe Pin1(which is on the top left of the schematic, corresponds to the top right of the pinout microcontroller which shouldn't actually impact the schematic too much, as long as i am careful during the PCB step)
+
+Explanation shown in *Pinout comparison.docx)*
+
+
+
+I decided that i will solder the battery directly to the MC post fabrication, but it is worth noting that the pinout shows the Bat+ and Bat- to be to the sides of the usb port(top)
+
+
+
+NOTE OF PIN connections in schematic vs corresponding pinout:
+
+Col1-pin5 D1
+
+Col2-pin6 D0
+
+Col3-pin7 D4
+
+Col4-pin8 C6
+
+Col5-pin9 D7
+
+Col6-pin10 E6
+
+
+
+Row1-pin11 B4
+
+Row2-pin12 B5
+
+Row3-pin15 B1
+
+Row4-pin16 B3
+
+
+
+**After understanding the pins, and know what to keep track of during the PCB stage, the schematic of the left keyboard is done.**
+
+
+
+* Potentially add a reset button for the reset pin?
+
+
+
+
+
+##### FOOTPRINTS-Left
+
+Assigning footprints to the components
+
+
+
+With the library that i had already added to project, I should just need to add apply the footprints.
+
+Considering the components i am using, the switches should follow the Cherry MX style, or something equivalent. the diodes should be the od35s diode(footprint included in library)
+
+
+
+
+
+I had an issue where i couldn't see the libraries' footprint. I later discovered that i need to add the folders with the .pretty into the list, not the entire parent footprint folder
+
+
+
+For the diode I assigned the D035 diode(from the scottokeebs library
+
+NOTE: To quickly find components, select library on the left side, before searching
+
+
+
+for key switch, 1u, 2u all determines what type of key it is,
+
+**I will be using: 1u is the normal ones,** 
+
+**I will use 1.25u for (CTRL(s1), CAP(s7),SHIFT(s13),NUMLAYER(s19),TAB(s20),del(s21)**
+
+**I will use 1.5u for the space(s22) and enter**
+
+
+
+NOTE: 1u up to 1.17u all use the same keyswitch, only differentiating key cap size. Any larger ones would need stabilizers
+
+
+
+Controller already had its footprint assigned
+
+
+
+
+
+
+
+NEXT STEP: 
+
+Consider adding the rst button to schematic
+
+Finish PCB for left keyboard
+
+do schematic for right keyboard
+
+
 
 
 
