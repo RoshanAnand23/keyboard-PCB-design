@@ -221,7 +221,7 @@ MX style: Haimu Whisper Silent Tactile Switch
 
 Alternatively: https://prototypist.net/search?q=Haimu+Whisper+Silent+Tactile+Switch
 
-Has many more options, in smaller packs, easy to find Cherry MX Equivalent 
+Has many more options, in smaller packs, easy to find Cherry MX Equivalent
 
 
 
@@ -267,6 +267,36 @@ Basic steps
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+I used DownGit to download the specific folder from (https://github.com/joe-scotto/scottokeebs/tree/main/Extras/ScottoKicad), and then added them to my leftKeyboard and rightKeyboard project folders.
+
+
+
+Then I added the libraries to the project specific library(main menu, preferences, manage symbol/footprint libraries, project specific library)
+
+NOTE: Do not need to create/modify the path. 
+
+NOTE: Schematic are mainly for the MC, the switches would just use the normal switch schematic, and only the footprint would be what is needed from the library
+
+
+
+**(HAVENT DONE THIS STEP FOR THE RIGHT KEYBOARD)^^**
+
+
+
+I started placing the switch, diode and Controller schematics(for left Keyboard)
 
 
 
