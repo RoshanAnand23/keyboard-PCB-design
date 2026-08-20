@@ -2,7 +2,7 @@ The purpose of this logbook is to write down my thought process, and reasons for
 
 
 
-
+keyboard layout design found in *Keyboard Overall Layout.jpg*
 
 
 
@@ -366,7 +366,7 @@ Assigning footprints to the components
 
 With the library that i had already added to project, I should just need to add apply the footprints.
 
-Considering the components i am using, the switches should follow the Cherry MX style, or something equivalent. the diodes should be the od35s diode(footprint included in library)
+Considering the components i am using, the switches should follow the Cherry MX style, or something equivalent. the diodes should be the ~~od35s~~ SOD123 diode(footprint included in library)
 
 
 
@@ -384,9 +384,9 @@ NOTE: To quickly find components, select library on the left side, before search
 
 for key switch, 1u, 2u all determines what type of key it is,
 
-**I will be using: 1u is the normal ones,** 
+**I will be using: 1u is the normal ones,**
 
-**I will use 1.25u for (CTRL(s1), CAP(s7),SHIFT(s13),NUMLAYER(s19),TAB(s20),del(s21)**
+**I will use 1.25u for (CTRL(s1), CAP(s7),SHIFT(s13)**
 
 **I will use 1.5u for the space(s22) and enter**
 
@@ -402,19 +402,69 @@ Controller already had its footprint assigned
 
 
 
+##### PCB
+
+###### Switch Grid
+
+Arranging the switches: i decided to use a custom grid(ctrl shift m to measure)
+
+each key switch(including key cap placeholder) is 19mm(19.05mm)
+
+So i will be setting a custom grid of(19.05mm/8)
+
+NOTE: a standard keycap is around 18mm, so the outline provided by footprint(from library) already takes it into account, so outline should touch without overlap/space.
 
 
-NEXT STEP: 
 
-Consider adding the rst button to schematic
+Had an issue where the footprints were aligning to different grids.
 
-Finish PCB for left keyboard
-
-do schematic for right keyboard
+I attempt to solve this using a smaller grid, 19.05/64
 
 
 
+Semi-Giving up, i deleted all the components, and updated PCB again. I suspect that since the components are brought in aligned, setting my custom grid should work this time.
 
+^^didn't work
+
+
+
+**SOLUTION**: I need to set grid origin on the top left corner of one of the switches, then for every other switch, 'move with reference' on the same point on its footprint(top left corner)
+
+(right click- positioning tools- move with reference- click point on footprint)
+
+In the end, i used custom grid (19.05mm/8)
+
+
+
+For the space bar i rotated it at an angle of 67.5(midpoint between 90deg and 45deg)
+
+then used move by reference to move its corner by one grid unit down from s21's bottom right corner
+
+
+
+
+
+###### Diode placement
+
+Did the same thing for the diodes, where i set the grid origin as the midpoint between the switches
+
+
+
+**NOTE:I have decided to switch the footprint of the diode to sod123, As this diode can come presoldered when ordering on JLC, and have through holes, which may interfere with the switches.**
+
+
+
+###### Final layout
+
+I grouped the columns so that i could easily shift them to match the keyboard layout in (keyboard overall layout.jpg)
+
+i made the grid 0.5mm and moved in increments until the height offsets were about 0.5cm.
+
+
+
+**TODO:**
+
+**route and consider Controller placement, either above space, or to the left of bottom row(ig depends where id rather have the pcb cut at**
 
 
 
