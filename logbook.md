@@ -298,6 +298,8 @@ NOTE: Schematic are mainly for the MC, the switches would just use the normal sw
 
 
 
+### LEFT SIDE(KEYBOARD)
+
 ##### SCHEMATIC-left
 
 
@@ -454,7 +456,7 @@ Did the same thing for the diodes, where i set the grid origin as the midpoint b
 
 
 
-###### Final layout
+##### Final layout
 
 I grouped the columns so that i could easily shift them to match the keyboard layout in (keyboard overall layout.jpg)
 
@@ -462,13 +464,145 @@ i made the grid 0.5mm and moved in increments until the height offsets were abou
 
 
 
-**TODO:**
+**Edge Cut(the pcb layer)**
 
-**route and consider Controller placement, either above space, or to the left of bottom row(ig depends where id rather have the pcb cut at**
-
-
+Using the User.Drawings line, i traced the edge of the component. Using a custom grid(space from component edge to pcb edge), i moved the line 1 grid unit away, and i then rounded the edges.
 
 
 
+(https://www.allpcb.com/allelectrohub/mastering-component-spacing-a-practical-guide-to-dfa-guidelines)<--The ideal distance from component to the edge cut of a keyboard PCB)
 
+
+
+The keyswitch footprint already includes an outline for the keycap. From what i have seen, it says 3mm is ideal distance from component to pcb edge. The keyswitch footprint is 2.5 mm away from its keycap placeholder line. So could i will the distance from keycap placeholder space to edge of pcb 0.5mm.
+
+
+
+HOWEVER, since the PCB edge does not Need to be beyond the keycap placeholder edge, and that 3mm consideration is meant for automated pcb manufacturing, it may be reasonable to set the distance to be **1mm** from edge of keyswitch footprint(ignoring keycap placeholder), to pcb edge.
+
+
+
+
+
+For the controller, i need to add a hole in the pcb where the port/switch will go. I made a hole(with a 1mm buffer between edge and controller through holes)
+
+(LATER CHANGES IT TO NOT NEED THIS STEP, AS PIN HEADERS SOLVES THIS
+
+
+
+
+
+
+
+I also moved the silk screen labels to not overlap any footprints
+
+
+
+The Scottokeebs library has the 3d files of the components for the 3D viewer. The view them, in PCB layout, press 'e', configured path
+
+
+
+
+
+
+
+To improve the aesthetic, i Used Bezier Curve, fillet lines and chamfer lines to smoothen the edges.
+
+Additionally, i just had to make sure none of the pcb edges intersects with the silkscreen lines.
+
+NOTE: With Bezier curves, the Gerber file approximates hundreds of straight line, so an Arc would be safer, but i will attempt with Bezier curve first(just minimize usage)
+
+
+
+Used chamfer of 0.5mm for most corners, and Beziel curve, but kept it reasonably smooth.
+
+
+
+##### WIRING
+
+Starting to route the components. Will consider increasing pcb size if not enough space.
+
+
+
+CHECK ON DIODE D7 silkscreen
+
+
+
+NOTE: From the appearance tab(on right side), can toggle show only front/back to make routing easier
+
+
+
+For the rows, i connect switch to top of diode, then made a shared bus(starting from initial diode), then connected that to switch, while connecting other diodes in that row to the shared bus.
+
+
+
+For the collumns, i connect the switches vertically, but it makes routing the top switch to controller difficult(as they are blocked by those vertical routes), so i used vias and routed them horizontally on the back layer
+
+(Leaving a 0.5mm between the vias)
+
+**NOTE: When routing, start with one layer wire, (PRESS V) then continue to the other layer wire automatically**
+
+**(PRESS D) to fix routes**
+
+**(PRESS F) to auto finish routes**
+
+
+
+Keeping distance >0.3mm between routes
+
+
+
+##### FILLED ZONES
+
+
+
+
+
+**TODO:FILLED ZONES**
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### DRC
+
+Shows no erros, but showed warning related to (Silkscreen clipped by board edge) and (silkscreen clipped by solder mask).
+
+Since these are not issues, i can solve by just cleaning up the silkcreen lines.
+
+
+
+#### CHANGES
+
+I have decided to include the entire Controller within the PCB layout, as following what the 3D viewer shows, i can just use a Pin Header, so prevent the need of cutting out part of the pcb
+
+* ***This is fine as long as the Controller orientation is for the back layer***
+
+
+
+
+
+### RIGHT SIDE(KEYBOARD)
+
+
+
+##### 
 
