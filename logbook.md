@@ -618,7 +618,83 @@ I have decided to include the entire Controller within the PCB layout, as follow
 
 ### RIGHT SIDE(KEYBOARD)
 
+I am going to try copying(either files or direct ctrl c and v, into a new project to save time on repeating the above steps
 
 
-##### 
+
+Firstly, i add the scottokeebs library to the project specific library(schematic and footprints) in the right keyboard project.
+
+
+
+Then i copied and pasted the schematic.
+
+
+
+I rearranged the rows and colums for right keyboard layout(there is one less column)
+
+I changed the footprints to match the new layout
+
+**I will be using: 1u is the normal ones,**
+
+**I will use 1.5u for the space(s22) and enter**
+
+
+
+
+
+Now i can either rearrange the controller pins config work better for the right side(more of the pins will face the switches), OR i could keep the same pin config.
+
+I plan to change the pin config("While looking at the *pin comparison.png,* and consider datasheet
+
+NOTE OF PIN connections in schematic vs corresponding pinout:
+
+
+
+Col1-pin20 F4
+
+Col2-pin19 F5
+
+Col3-pin18 F6
+
+Col4-pin17 F7
+
+Col5-pin16 B1
+
+Col6-pin15 B3
+
+
+
+Row1-pin14 B2
+
+Row2-pin13 B6
+
+Row3-pin11 B4
+
+Row4-pin12 B5
+
+
+
+I then (In PCB layout), copied the left keyboard pcb layout and pasted it into the rightkeyboard layout.
+
+
+
+I then global delete(in edit), to remove all the routing and vias.
+
+
+
+I then grouped the edge cut and flipped it
+
+I rearranged the switches(HAVENT CHECKED IF CORRECT ORDER CORRESPOND TO SCHEMATIC)
+
+will then cut the edgecut to remove last column
+
+
+
+**TODO: check switch order, make sure it arrangement(position) matches left side, modify edge cut**
+
+**route**
+
+**filled zone**
+
+**SCREENSHOT FOR RIGHT KEYBOARD**
 
