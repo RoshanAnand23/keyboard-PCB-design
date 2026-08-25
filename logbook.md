@@ -546,6 +546,8 @@ For the collumns, i connect the switches vertically, but it makes routing the to
 
 **(PRESS F) to auto finish routes**
 
+Vias, kept the default kicad config, as this would minimize the cost.
+
 
 
 Keeping distance >0.3mm between routes
@@ -562,23 +564,35 @@ Keeping distance >0.3mm between routes
 
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NOTE: When adding a filled zone, i should avoid the antenna in the MC, which is the part at the very edge of the controller(on the other side across the port for this specific controller)- *USING A DRAW RULE AREA*
 
 
 
+B.Cu, Add filled zone, select NET(GND), draw zone, PRESS B to fill zones, Run DRC
 
 
 
+The benefit of adding a filled zone, even though there is no GND/POWER lines(since controller only sends data to and from the switches), is to prevent warping
 
 
 
+The ground plane also helps with isolation(preventing noise)
 
 
 
+I plan to have the GND plane on **both the top and bottom layers.**
+
+To have a Ground Plane, to include it, i need to **add a GND net in the schematic**
+
+Additionally, add vias for improved heat distribution.
 
 
 
+Summary: Draw Rule Area for antenna, filled zone GND net both layers, Vias to fill in missed zones, additional vias for heat dissipation.
 
+
+
+Planning to do about 1 vias for every 4 switches, with a couple extra in empty spaces.
 
 
 
@@ -586,7 +600,9 @@ Keeping distance >0.3mm between routes
 
 Shows no erros, but showed warning related to (Silkscreen clipped by board edge) and (silkscreen clipped by solder mask).
 
-Since these are not issues, i can solve by just cleaning up the silkcreen lines.
+Since these are not issues, i can solve by just cleaning up the silkcreen lines, leaving it as is, as apparently manufacturers like JLC would automatically clip/resolve these kind of issues.
+
+
 
 
 

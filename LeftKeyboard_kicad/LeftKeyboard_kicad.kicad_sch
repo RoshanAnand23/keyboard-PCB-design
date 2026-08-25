@@ -1230,6 +1230,16 @@
 	)
 	(wire
 		(pts
+			(xy 158.75 63.5) (xy 163.83 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "317484e0-f11e-4143-88e5-fd47fdb503f1")
+	)
+	(wire
+		(pts
 			(xy 114.3 113.03) (xy 125.73 113.03)
 		)
 		(stroke
@@ -1867,6 +1877,16 @@
 			(justify left bottom)
 		)
 		(uuid "5b922b3c-ead0-4adf-816a-c8dee48b3005")
+	)
+	(label "GND"
+		(at 158.75 63.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6dc083f2-31de-42f9-aa0c-c2dd2db001fa")
 	)
 	(label "Row1"
 		(at 158.75 83.82 180)
