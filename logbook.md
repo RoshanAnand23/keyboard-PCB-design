@@ -684,17 +684,55 @@ I then global delete(in edit), to remove all the routing and vias.
 
 I then grouped the edge cut and flipped it
 
-I rearranged the switches(HAVENT CHECKED IF CORRECT ORDER CORRESPOND TO SCHEMATIC)
-
-will then cut the edgecut to remove last column
+I rearranged the switches(CHECKed IF ORDER MATCHES SCHEMATIC)
 
 
 
-**TODO: check switch order, make sure it arrangement(position) matches left side, modify edge cut**
+I then opened the left keyboard pcb layout and will try to mirror the arangement as best as i can(Using measuring tools ctrl shift m)
 
-**route**
+Moved the diodes to the left of the switches
 
-**filled zone**
 
-**SCREENSHOT FOR RIGHT KEYBOARD**
+
+Now i shortened the edge cut's end because the right keyboard has one less column
+
+
+
+
+
+Noticed an issue where the routing matched the previous project(left keyboard), rather then the current project's schematic.
+
+Solution: When i go to update PCB, select the update footprint option
+
+
+
+Routed(and via) the components similar to the left keyboard, 
+
+I then added a GND filled zone to both layers, and placed thermal vias around.
+
+(Also added a draw rule area around antenna)
+
+
+
+### EXTRA
+
+Ive finished the PCB layout for both keyboards, my next step would be to, export files to order from JLC, design the 3D printed casing, get firmware ready to flash.
+
+
+
+HOWEVER, i would like to add art to the silkscreen
+
+FOR NOW I JUST ADDED MY NAME, BUT ADDING A SYMBOL OR SMT WOULD BE NICE
+
+
+
+
+
+
+
+
+
+
+
+
 
